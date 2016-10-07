@@ -9,11 +9,19 @@ config :web, Web.Endpoint,
 # Print only warnings and errors during test
 config :logger, level: :warn
 
-# Configure your database
+# # Configure your database
+# config :web, Web.Repo,
+#   adapter: Ecto.Adapters.Postgres,
+#   username: "postgres",
+#   password: "postgres",
+#   database: "web_test",
+#   hostname: "localhost",
+#   pool: Ecto.Adapters.SQL.Sandbox
+
 config :web, Web.Repo,
-  adapter: Ecto.Adapters.Postgres,
-  username: "postgres",
-  password: "postgres",
-  database: "web_test",
+  adapter: RethinkDB.Ecto,
+  database: "test",
+  pool_size: 10,
   hostname: "localhost",
-  pool: Ecto.Adapters.SQL.Sandbox
+  port: 28015
+

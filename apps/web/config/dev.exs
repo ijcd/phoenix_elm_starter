@@ -33,11 +33,18 @@ config :logger, :console, format: "[$level] $message\n"
 # in production as building large stacktraces may be expensive.
 config :phoenix, :stacktrace_depth, 20
 
-# Configure your database
+# # Configure your database
+# config :web, Web.Repo,
+#   adapter: Ecto.Adapters.Postgres,
+#   username: "postgres",
+#   password: "postgres",
+#   database: "web_dev",
+#   hostname: "localhost",
+#   pool_size: 10
+
 config :web, Web.Repo,
-  adapter: Ecto.Adapters.Postgres,
-  username: "postgres",
-  password: "postgres",
-  database: "web_dev",
+  adapter: RethinkDB.Ecto,
+  database: "test",
+  pool_size: 10,
   hostname: "localhost",
-  pool_size: 10
+  port: 28015
