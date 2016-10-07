@@ -13,14 +13,26 @@ defmodule Web.Router do
     plug :accepts, ["json"]
   end
 
+  pipeline :graphql do
+    plug Web.Context
+  end
+
   scope "/", Web do
     pipe_through :browser # Use the default browser stack
 
     get "/", PageController, :index
   end
 
-  # Other scopes may use custom stacks.
-  # scope "/api", Web do
-  #   pipe_through :api
-  # end
+  scope "/graphql" do
+    pipe_through :graphql
+
+    forward "/", Absinthe.Plug, schema: Web.Schema
+  end
+
+  scope "/graphiql" do
+    pipe_through :graphql
+
+    get "/", Absinthe.Plug.GraphiQL, schema: Web.Schema
+    post "/", Absinthe.Plug.GraphiQL, schema: Web.Schema
+  end
 end

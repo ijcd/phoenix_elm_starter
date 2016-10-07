@@ -38,5 +38,6 @@ defmodule Web.Endpoint do
     key: "_web_key",
     signing_salt: "RZwpwQJ2"
 
+  plug CORSPlug
   plug Web.Router
 end

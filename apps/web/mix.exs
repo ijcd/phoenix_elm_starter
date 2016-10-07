@@ -48,6 +48,8 @@ defmodule Web.Mixfile do
      {:cowboy, "~> 1.0"},
      {:rethinkdb_ecto, github: "almightycouch/rethinkdb_ecto", branch: "ecto_2"},
      {:absinthe_plug, "~> 1.1.0"},
+     {:cors_plug, ">= 0.0.0"},
+     {:timex, ">= 0.0.0"},
     ]
   end
 
