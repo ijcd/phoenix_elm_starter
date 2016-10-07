@@ -29,3 +29,13 @@ Setting up:
 
 * https://medium.com/@diamondgfx/writing-a-full-site-in-phoenix-and-elm-a100804c9499#.3zqis46mr
 * https://medium.com/@diamondgfx/writing-a-full-site-in-phoenix-and-elm-a4622c5130f5#.7eknel5gj
+
+## GraphQL
+
+* Tutorial: http://absinthe-graphql.org/tutorial/
+* Check out branch graphql_example and browse to /graphiql
+
+```
+brew cask install graphiql
+```
+

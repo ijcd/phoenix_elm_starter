@@ -25,7 +25,9 @@ defmodule Web.Mixfile do
      applications: [:phoenix, :phoenix_pubsub, :phoenix_html, :cowboy, :logger, :gettext,
                     :phoenix_ecto,
                     # :postgrex,
-                    :rethinkdb_ecto]]
+                    :rethinkdb_ecto,
+                    :absinthe_plug
+                   ]]
   end
 
   # Specifies which paths to compile per environment.
@@ -44,7 +46,8 @@ defmodule Web.Mixfile do
      {:phoenix_live_reload, "~> 1.0", only: :dev},
      {:gettext, "~> 0.11"},
      {:cowboy, "~> 1.0"},
-     {:rethinkdb_ecto, github: "almightycouch/rethinkdb_ecto", branch: "ecto_2"}
+     {:rethinkdb_ecto, github: "almightycouch/rethinkdb_ecto", branch: "ecto_2"},
+     {:absinthe_plug, "~> 1.1.0"},
     ]
   end
 
