@@ -7758,108 +7758,7 @@ var _elm_lang$html$Html_Attributes$classList = function (list) {
 };
 var _elm_lang$html$Html_Attributes$style = _elm_lang$virtual_dom$VirtualDom$style;
 
-var _elm_lang$html$Html_Events$keyCode = A2(_elm_lang$core$Json_Decode_ops[':='], 'keyCode', _elm_lang$core$Json_Decode$int);
-var _elm_lang$html$Html_Events$targetChecked = A2(
-	_elm_lang$core$Json_Decode$at,
-	_elm_lang$core$Native_List.fromArray(
-		['target', 'checked']),
-	_elm_lang$core$Json_Decode$bool);
-var _elm_lang$html$Html_Events$targetValue = A2(
-	_elm_lang$core$Json_Decode$at,
-	_elm_lang$core$Native_List.fromArray(
-		['target', 'value']),
-	_elm_lang$core$Json_Decode$string);
-var _elm_lang$html$Html_Events$defaultOptions = _elm_lang$virtual_dom$VirtualDom$defaultOptions;
-var _elm_lang$html$Html_Events$onWithOptions = _elm_lang$virtual_dom$VirtualDom$onWithOptions;
-var _elm_lang$html$Html_Events$on = _elm_lang$virtual_dom$VirtualDom$on;
-var _elm_lang$html$Html_Events$onFocus = function (msg) {
-	return A2(
-		_elm_lang$html$Html_Events$on,
-		'focus',
-		_elm_lang$core$Json_Decode$succeed(msg));
-};
-var _elm_lang$html$Html_Events$onBlur = function (msg) {
-	return A2(
-		_elm_lang$html$Html_Events$on,
-		'blur',
-		_elm_lang$core$Json_Decode$succeed(msg));
-};
-var _elm_lang$html$Html_Events$onSubmitOptions = _elm_lang$core$Native_Utils.update(
-	_elm_lang$html$Html_Events$defaultOptions,
-	{preventDefault: true});
-var _elm_lang$html$Html_Events$onSubmit = function (msg) {
-	return A3(
-		_elm_lang$html$Html_Events$onWithOptions,
-		'submit',
-		_elm_lang$html$Html_Events$onSubmitOptions,
-		_elm_lang$core$Json_Decode$succeed(msg));
-};
-var _elm_lang$html$Html_Events$onCheck = function (tagger) {
-	return A2(
-		_elm_lang$html$Html_Events$on,
-		'change',
-		A2(_elm_lang$core$Json_Decode$map, tagger, _elm_lang$html$Html_Events$targetChecked));
-};
-var _elm_lang$html$Html_Events$onInput = function (tagger) {
-	return A2(
-		_elm_lang$html$Html_Events$on,
-		'input',
-		A2(_elm_lang$core$Json_Decode$map, tagger, _elm_lang$html$Html_Events$targetValue));
-};
-var _elm_lang$html$Html_Events$onMouseOut = function (msg) {
-	return A2(
-		_elm_lang$html$Html_Events$on,
-		'mouseout',
-		_elm_lang$core$Json_Decode$succeed(msg));
-};
-var _elm_lang$html$Html_Events$onMouseOver = function (msg) {
-	return A2(
-		_elm_lang$html$Html_Events$on,
-		'mouseover',
-		_elm_lang$core$Json_Decode$succeed(msg));
-};
-var _elm_lang$html$Html_Events$onMouseLeave = function (msg) {
-	return A2(
-		_elm_lang$html$Html_Events$on,
-		'mouseleave',
-		_elm_lang$core$Json_Decode$succeed(msg));
-};
-var _elm_lang$html$Html_Events$onMouseEnter = function (msg) {
-	return A2(
-		_elm_lang$html$Html_Events$on,
-		'mouseenter',
-		_elm_lang$core$Json_Decode$succeed(msg));
-};
-var _elm_lang$html$Html_Events$onMouseUp = function (msg) {
-	return A2(
-		_elm_lang$html$Html_Events$on,
-		'mouseup',
-		_elm_lang$core$Json_Decode$succeed(msg));
-};
-var _elm_lang$html$Html_Events$onMouseDown = function (msg) {
-	return A2(
-		_elm_lang$html$Html_Events$on,
-		'mousedown',
-		_elm_lang$core$Json_Decode$succeed(msg));
-};
-var _elm_lang$html$Html_Events$onDoubleClick = function (msg) {
-	return A2(
-		_elm_lang$html$Html_Events$on,
-		'dblclick',
-		_elm_lang$core$Json_Decode$succeed(msg));
-};
-var _elm_lang$html$Html_Events$onClick = function (msg) {
-	return A2(
-		_elm_lang$html$Html_Events$on,
-		'click',
-		_elm_lang$core$Json_Decode$succeed(msg));
-};
-var _elm_lang$html$Html_Events$Options = F2(
-	function (a, b) {
-		return {stopPropagation: a, preventDefault: b};
-	});
-
-var _user$project$Article$view = function (model) {
+var _user$project$Components_Article$view = function (model) {
 	return A2(
 		_elm_lang$html$Html$span,
 		_elm_lang$core$Native_List.fromArray(
@@ -7872,7 +7771,7 @@ var _user$project$Article$view = function (model) {
 				_elm_lang$html$Html$a,
 				_elm_lang$core$Native_List.fromArray(
 					[
-						_elm_lang$html$Html_Attributes$href(model.url)
+						_elm_lang$html$Html_Attributes$href('#')
 					]),
 				_elm_lang$core$Native_List.fromArray(
 					[
@@ -7908,90 +7807,15 @@ var _user$project$Article$view = function (model) {
 					]))
 			]));
 };
-var _user$project$Article$Model = F4(
+var _user$project$Components_Article$Model = F4(
 	function (a, b, c, d) {
 		return {title: a, url: b, postedBy: c, postedOn: d};
 	});
 
-var _user$project$Components_ArticleList$initialModel = {
-	articles: _elm_lang$core$Native_List.fromArray(
-		[])
-};
-var _user$project$Components_ArticleList$renderArticle = function (article) {
-	return A2(
-		_elm_lang$html$Html$li,
-		_elm_lang$core$Native_List.fromArray(
-			[]),
-		_elm_lang$core$Native_List.fromArray(
-			[
-				_user$project$Article$view(article)
-			]));
-};
-var _user$project$Components_ArticleList$renderArticles = function (articles) {
-	return A2(_elm_lang$core$List$map, _user$project$Components_ArticleList$renderArticle, articles.articles);
-};
-var _user$project$Components_ArticleList$articles = {
-	articles: _elm_lang$core$Native_List.fromArray(
-		[
-			{title: 'Article 1', url: 'http://google.com', postedBy: 'Author', postedOn: '06/20/16'},
-			{title: 'Article 2', url: 'http://google.com', postedBy: 'Author 2', postedOn: '06/20/16'},
-			{title: 'Article 3', url: 'http://google.com', postedBy: 'Author 3', postedOn: '06/20/16'}
-		])
-};
-var _user$project$Components_ArticleList$update = F2(
-	function (msg, model) {
-		var _p0 = msg;
-		if (_p0.ctor === 'NoOp') {
-			return {ctor: '_Tuple2', _0: model, _1: _elm_lang$core$Platform_Cmd$none};
-		} else {
-			return {ctor: '_Tuple2', _0: _user$project$Components_ArticleList$articles, _1: _elm_lang$core$Platform_Cmd$none};
-		}
-	});
-var _user$project$Components_ArticleList$Model = function (a) {
-	return {articles: a};
-};
-var _user$project$Components_ArticleList$Fetch = {ctor: 'Fetch'};
-var _user$project$Components_ArticleList$view = function (model) {
-	return A2(
-		_elm_lang$html$Html$div,
-		_elm_lang$core$Native_List.fromArray(
-			[
-				_elm_lang$html$Html_Attributes$class('article-list')
-			]),
-		_elm_lang$core$Native_List.fromArray(
-			[
-				A2(
-				_elm_lang$html$Html$h2,
-				_elm_lang$core$Native_List.fromArray(
-					[]),
-				_elm_lang$core$Native_List.fromArray(
-					[
-						_elm_lang$html$Html$text('Article List')
-					])),
-				A2(
-				_elm_lang$html$Html$button,
-				_elm_lang$core$Native_List.fromArray(
-					[
-						_elm_lang$html$Html_Events$onClick(_user$project$Components_ArticleList$Fetch),
-						_elm_lang$html$Html_Attributes$class('btn btn-primary')
-					]),
-				_elm_lang$core$Native_List.fromArray(
-					[
-						_elm_lang$html$Html$text('Fetch Articles')
-					])),
-				A2(
-				_elm_lang$html$Html$ul,
-				_elm_lang$core$Native_List.fromArray(
-					[]),
-				_user$project$Components_ArticleList$renderArticles(model))
-			]));
-};
-var _user$project$Components_ArticleList$NoOp = {ctor: 'NoOp'};
-
 var Elm = {};
 Elm['Components'] = Elm['Components'] || {};
-Elm['Components']['ArticleList'] = Elm['Components']['ArticleList'] || {};
-_elm_lang$core$Native_Platform.addPublicModule(Elm['Components']['ArticleList'], 'Components.ArticleList', typeof _user$project$Components_ArticleList$main === 'undefined' ? null : _user$project$Components_ArticleList$main);
+Elm['Components']['Article'] = Elm['Components']['Article'] || {};
+_elm_lang$core$Native_Platform.addPublicModule(Elm['Components']['Article'], 'Components.Article', typeof _user$project$Components_Article$main === 'undefined' ? null : _user$project$Components_Article$main);
 
 if (typeof define === "function" && define['amd'])
 {
